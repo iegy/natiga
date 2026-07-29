@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>نتيجة الثانوية العامة ٢٠٢٦ — الدور الأول</title>
+<meta name="description" content="استعلام عن نتيجة الثانوية العامة برقم الجلوس أو بالاسم">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="ledger-bg" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <p class="eyebrow">استعلام النتيجة</p>
+    <h1 class="title">نتيجة الثانوية العامة</h1>
+    <p class="subtitle" id="subtitleStats">الدور الأول ٢٠٢٦</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="card search-card">
+    <div class="tabs" role="tablist" aria-label="طريقة البحث">
+      <button class="tab active" id="tabSeat" role="tab" aria-selected="true">رقم الجلوس</button>
+      <button class="tab" id="tabName" role="tab" aria-selected="false">الاسم</button>
+    </div>
+
+    <!-- Seat number search -->
+    <form id="formSeat" class="search-pane" autocomplete="off">
+      <label class="field-label" for="seatBoxes">اكتب رقم الجلوس (٧ أرقام)</label>
+      <div class="seat-boxes" id="seatBoxes" dir="ltr"></div>
+      <input type="hidden" id="seatValue" />
+      <button type="submit" class="btn-search" id="btnSeatSearch" disabled>استعلام</button>
+    </form>
+
+    <!-- Name search -->
+    <form id="formName" class="search-pane hidden" autocomplete="off">
+      <label class="field-label" for="nameInput">اكتب الاسم رباعي زي ما هو مسجل بالشهادة</label>
+      <input type="text" id="nameInput" class="name-input" placeholder="مثال: أحمد محمد علي إبراهيم" dir="rtl">
+      <p class="hint">كل ما تكتب الاسم أكمل، النتيجة تبقى أدق</p>
+      <button type="submit" class="btn-search">بحث</button>
+    </form>
+  </div>
+
+  <div id="resultsArea" class="results-area"></div>
+
+  <p class="stat-strip" id="statStrip"></p>
+
+</main>
+
+<footer class="site-foot">
+  <p>أداة استعلام غير رسمية لعرض بيانات نتيجة الثانوية العامة. للتأكد الرسمي راجع بوابة وزارة التربية والتعليم.</p>
+</footer>
+
+<template id="stampTpl">
+  <div class="result-card">
+    <div class="result-top">
+      <div class="result-name"></div>
+      <div class="result-seat"></div>
+    </div>
+    <div class="stamp"></div>
+    <div class="degree-row">
+      <div class="degree-num"></div>
+      <div class="degree-bar"><div class="degree-fill"></div></div>
+    </div>
+  </div>
+</template>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
